@@ -10,11 +10,11 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- Bootstrap -->
-<link href="../../bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<link href="${pageContext.request.contextPath}/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 <script
 	src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
-<script src="../../bootstrap/js/bootstrap.min.js"></script>
-<link href="../../css/mycss.css" rel="stylesheet">
+<script src="${pageContext.request.contextPath}/bootstrap/js/bootstrap.min.js"></script>
+<link href="${pageContext.request.contextPath}/css/mycss.css" rel="stylesheet">
 <!--[if lt IE 9]>
     <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
@@ -38,15 +38,15 @@
 		<nav class="navbar navbar-default">
 		<div class="navbar-collapse">
 			<form class="navbar-form navbar-left"
-				action="teacherController/openTranscript/2333333" method="post">
+				action="${pageContext.request.contextPath}/teacherController/openTranscript/2333333" method="post">
 				<button type="submit" class="btn btn-default">刷新</button>
 			</form>
 			<a class="btn btn-primary navbar-btn"
-				href="./admin-transcript.jsp"> 返回 </a>
+				href="${pageContext.request.contextPath}/html/teacherframe/admin-transcript.jsp"> 返回 </a>
 			<a class="btn btn-primary navbar-btn" target="_blank"
-				href="./transcript.jsp"> 最大化管理 </a>
+				href="${pageContext.request.contextPath}/html/teacherframe/transcript.jsp"> 最大化管理 </a>
 			<form id="delete" class="navbar-form navbar-right"
-				action="teacherController/deleteStudent" method="post">
+				action="${pageContext.request.contextPath}/teacherController/deleteStudent" method="post">
 				<button type="submit" class="btn btn-warning">删除所选项</button>
 			</form>
 		</div>
@@ -83,7 +83,7 @@
 							end="${sessionScope.transcriptLength>sessionScope.transcriptIndex*10+9?sessionScope.transcriptIndex*10+9:sessionScope.transcriptLength}"
 							varStatus="sta">
 							<p hidden>${transcript=sessionScope.transcripts[sta.index]}</p>
-							<form action="teacherController/updateTranscript"
+							<form action="${pageContext.request.contextPath}/teacherController/updateTranscript"
 								method="post">
 								<tr>
 									<td><input form="delete" type="checkbox" class=""
@@ -134,7 +134,7 @@
 												<div class="modal-body">
 													<h4>本次平均成绩:${transcript.average},排名: 第${sta.index+1}名</h4>
 													<a class="btn btn-primary navbar-btn" target="_blank"
-														href="../echarts/personBarChart.jsp?index=${sta.index}"> 本次成绩的分析 </a>
+														href="${pageContext.request.contextPath}/html/echarts/personBarChart.jsp?index=${sta.index}"> 本次成绩的分析 </a>
 												</div>
 												<div class="modal-footer">
 													<button type="button" class="btn btn-default"
@@ -166,7 +166,7 @@
 												</div>
 												<div class="modal-body">
 													<form id="messageform${sta.index}"
-														action="teacherController/addMessage"
+														action="${pageContext.request.contextPath}/teacherController/addMessage"
 														method="post">
 														<input type="text" value="${transcript.stuNo}"
 															name="messageStuNo" hidden />
@@ -207,17 +207,17 @@
 			test="${!empty sessionScope.transcriptIndex }">
 			<ul class="pagination">
 				<li><a
-					href="./transcript.jsp?index=${transcriptIndex-1>0?transcriptIndex-1:0}&pages=${transcriptPages}&length=${transcriptLength}"
+					href="${pageContext.request.contextPath}/html/teacherframe/transcript.jsp?index=${transcriptIndex-1>0?transcriptIndex-1:0}&pages=${transcriptPages}&length=${transcriptLength}"
 					aria-label="Previous"> <span aria-hidden="true">&laquo;</span>
 				</a></li>
 				<c:forEach begin="1" end="${sessionScope.transcriptPages}" step="1"
 					varStatus="sta">
 					<li><a
-						href="./transcript.jsp?index=${sta.index-1}&pages=${transcriptPages}&length=${transcriptLength}">${sta.index }
+						href="${pageContext.request.contextPath}/html/teacherframe/transcript.jsp?index=${sta.index-1}&pages=${transcriptPages}&length=${transcriptLength}">${sta.index }
 					</a></li>
 				</c:forEach>
 				<li><a
-					href="./transcript.jsp?index=${transcriptIndex<transcriptPages-1?transcriptIndex+1:transcriptPages-1}&pages=${transcriptPages}&length=${transcriptLength}"
+					href="${pageContext.request.contextPath}/html/teacherframe/transcript.jsp?index=${transcriptIndex<transcriptPages-1?transcriptIndex+1:transcriptPages-1}&pages=${transcriptPages}&length=${transcriptLength}"
 					aria-label="Next"> <span aria-hidden="true">&raquo;</span>
 				</a></li>
 			</ul>

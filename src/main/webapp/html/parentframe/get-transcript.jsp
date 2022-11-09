@@ -9,10 +9,10 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Bootstrap -->
-    <link href="../../bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
-    <script src="../../bootstrap/js/bootstrap.min.js"></script>
-    <link href="../../css/mycss.css" rel="stylesheet">
+    <script src="${pageContext.request.contextPath}/bootstrap/js/bootstrap.min.js"></script>
+    <link href="${pageContext.request.contextPath}/css/mycss.css" rel="stylesheet">
     <!--[if lt IE 9]>
     <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
@@ -76,7 +76,7 @@
 										value="<fmt:formatDate value="${transcriptRecord.uploadDate}" pattern="yyyy-MM-dd hh:mm:ss"/>"
 										name="uploadDate" readonly></td>	
 									<td><a class="btn btn-primary"
-										href="parentController/openMyTranscript/${transcriptRecord.transcriptName}">打开</a></td>
+										href="${pageContext.request.contextPath}/parentController/openMyTranscript/${transcriptRecord.transcriptName}">打开</a></td>
 								</tr>
 							</form>
 						</c:forEach>
@@ -90,18 +90,18 @@
 			test="${requestScope.TRLength >= 0 }">
 			<ul class="pagination">
 				<li><a
-					href="../teacherframe/admin-transcript.jsp?index=${TRIndex-1>0?TRIndex-1:0}&pages=${TRPages}&length=${TRLength}"
+					href="${pageContext.request.contextPath}/html/teacherframe/admin-transcript.jsp?index=${TRIndex-1>0?TRIndex-1:0}&pages=${TRPages}&length=${TRLength}"
 					aria-label="Previous"> <span aria-hidden="true">&laquo;</span>
 				</a></li>
 				<c:forEach begin="1" end="${requestScope.TRPages}" step="1"
 					varStatus="sta">
 					<li><a
-						href="../teacherframe/admin-transcript.jsp?index=${sta.index-1}&pages=${TRPages}&length=${TRLength}">${sta.index }
+						href="${pageContext.request.contextPath}/html/teacherframe/admin-transcript.jsp?index=${sta.index-1}&pages=${TRPages}&length=${TRLength}">${sta.index }
 					</a></li>
 				</c:forEach>
 
 				<li><a
-					href="../teacherframe/admin-transcript.jsp?index=${TRIndex<TRPages-1?TRIndex+1:TRPages-1}&pages=${TRPages}&length=${TRLength}"
+					href="${pageContext.request.contextPath}/html/teacherframe/admin-transcript.jsp?index=${TRIndex<TRPages-1?TRIndex+1:TRPages-1}&pages=${TRPages}&length=${TRLength}"
 					aria-label="Next"> <span aria-hidden="true">&raquo;</span>
 				</a></li>
 			</ul>
@@ -124,25 +124,25 @@
 
 <script type="text/javascript">
 	function dayTest(){
-		window.location.href="parentController/analyzeTest/"+document.getElementById("stuNo").value+"/day";
+		window.location.href="${pageContext.request.contextPath}/parentController/analyzeTest/"+document.getElementById("stuNo").value+"/day";
 	}
 	function dayRankTest(){
-		window.location.href="parentController/analyzeRankTest/"+document.getElementById("stuNo").value+"/day";
+		window.location.href="${pageContext.request.contextPath}/parentController/analyzeRankTest/"+document.getElementById("stuNo").value+"/day";
 	}
 	function weekTest(){
-		window.location.href="parentController/analyzeTest/"+document.getElementById("stuNo").value+"/week";
+		window.location.href="${pageContext.request.contextPath}/parentController/analyzeTest/"+document.getElementById("stuNo").value+"/week";
 	}
 	function weekRankTest(){
-		window.location.href="parentController/analyzeRankTest/"+document.getElementById("stuNo").value+"/week";
+		window.location.href="${pageContext.request.contextPath}/parentController/analyzeRankTest/"+document.getElementById("stuNo").value+"/week";
 	}
 	function monthTest(){
-		window.location.href="parentController/analyzeTest/"+document.getElementById("stuNo").value+"/month";
+		window.location.href="${pageContext.request.contextPath}/parentController/analyzeTest/"+document.getElementById("stuNo").value+"/month";
 	}
 	function monthRankTest(){
-		window.location.href="parentController/analyzeRankTest/"+document.getElementById("stuNo").value+"/month";
+		window.location.href="${pageContext.request.contextPath}/parentController/analyzeRankTest/"+document.getElementById("stuNo").value+"/month";
 	}
 	function queryTR(){
-		window.location.href="parentController/queryTR";
+		window.location.href="${pageContext.request.contextPath}/parentController/queryTR";
 	}
  	
  	

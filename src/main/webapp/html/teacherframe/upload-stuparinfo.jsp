@@ -8,13 +8,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Bootstrap -->
-    <link href="../../bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
-    <script src="../../bootstrap/js/bootstrap.min.js"></script>
-    <link href="../../css/mycss.css" rel="stylesheet">
-    <script src="../../js/zh_CN.min.js"></script>
-	<script src="../../js/bootstrapValidator.min.js"></script>
-	<link href="../../css/bootstrapValidator.min.css" rel="stylesheet">
+    <script src="${pageContext.request.contextPath}/bootstrap/js/bootstrap.min.js"></script>
+    <link href="${pageContext.request.contextPath}/css/mycss.css" rel="stylesheet">
+    <script src="${pageContext.request.contextPath}/js/zh_CN.min.js"></script>
+	<script src="${pageContext.request.contextPath}/js/bootstrapValidator.min.js"></script>
+	<link href="${pageContext.request.contextPath}/css/bootstrapValidator.min.css" rel="stylesheet">
     <!--[if lt IE 9]>
     <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
@@ -37,7 +37,7 @@
                         <h4 class="col-xs-2"><span class="label label-default" >家长</span></h4>
                     </row>
                     <row class="row">
-                        <form class="col-xs-offset-0" action="teacherController/upload" method="post" enctype="multipart/form-data">
+                        <form class="col-xs-offset-0" action="${pageContext.request.contextPath}/teacherController/upload" method="post" enctype="multipart/form-data">
                             <div class="form-group">
                                 <label for="upload-parent">File input</label>
                                 <input type="hidden" name="id" value="0">
@@ -55,7 +55,7 @@
                 </row>
                 <div class="container">
                     <row class="row">
-                        <form class="col-xs-offset-1" action="teacherController/upload" method="post" enctype="multipart/form-data">
+                        <form class="col-xs-offset-1" action="${pageContext.request.contextPath}/teacherController/upload" method="post" enctype="multipart/form-data">
                             <div class="form-group">
                             	<input type="hidden" name="id" value="1">
                                 <label for="upload-student">File input</label>

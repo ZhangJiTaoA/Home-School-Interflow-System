@@ -8,10 +8,10 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Bootstrap -->
-    <link href="../../bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
-    <script src="../../bootstrap/js/bootstrap.min.js"></script>
-    <link href="../../css/mycss.css" rel="stylesheet">
+    <script src="${pageContext.request.contextPath}/bootstrap/js/bootstrap.min.js"></script>
+    <link href="${pageContext.request.contextPath}/css/mycss.css" rel="stylesheet">
     <!--[if lt IE 9]>
     <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
@@ -84,42 +84,42 @@
 <script type="text/javascript">
 	function dayTest(){
 		if(checkSelect())
-		window.location.href="teacherController/analyzeTest/"+document.getElementById("select").value+"/day";
+		window.location.href="${pageContext.request.contextPath}/teacherController/analyzeTest/"+document.getElementById("select").value+"/day";
 	}
 	function dayRankTest(){
 		if(checkSelect())
-		window.location.href="teacherController/analyzeRankTest/"+document.getElementById("select").value+"/day";
+		window.location.href="${pageContext.request.contextPath}/teacherController/analyzeRankTest/"+document.getElementById("select").value+"/day";
 	}
 	function weekTest(){
 		if(checkSelect())
-		window.location.href="teacherController/analyzeTest/"+document.getElementById("select").value+"/week";
+		window.location.href="${pageContext.request.contextPath}/teacherController/analyzeTest/"+document.getElementById("select").value+"/week";
 	}
 	function weekRankTest(){
 		if(checkSelect())
-		window.location.href="teacherController/analyzeRankTest/"+document.getElementById("select").value+"/week";
+		window.location.href="${pageContext.request.contextPath}/teacherController/analyzeRankTest/"+document.getElementById("select").value+"/week";
 	}
 	function monthTest(){
 		if(checkSelect())
-		window.location.href="teacherController/analyzeTest/"+document.getElementById("select").value+"/month";
+		window.location.href="${pageContext.request.contextPath}/teacherController/analyzeTest/"+document.getElementById("select").value+"/month";
 	}
 	function monthRankTest(){
 		if(checkSelect())
-		window.location.href="teacherController/analyzeRankTest/"+document.getElementById("select").value+"/month";
+		window.location.href="${pageContext.request.contextPath}/teacherController/analyzeRankTest/"+document.getElementById("select").value+"/month";
 	}
 	function classCompare(){
 		if(checkSelect2())
-		window.location.href="teacherController/classCompare/"+document.getElementById("select2").value+"/"+document.getElementById("select3").value;
+		window.location.href="${pageContext.request.contextPath}/teacherController/classCompare/"+document.getElementById("select2").value+"/"+document.getElementById("select3").value;
 	}
 	function classEveryCompare(){
 		if(checkSelect2())
-		window.location.href="teacherController/classEveryCompare/"+document.getElementById("select2").value+"/"+document.getElementById("select3").value;
+		window.location.href="${pageContext.request.contextPath}/teacherController/classEveryCompare/"+document.getElementById("select2").value+"/"+document.getElementById("select3").value;
 	}
 	function refresh(){
-		window.location.href="teacherController/queryStudentsAndRecords";
+		window.location.href="${pageContext.request.contextPath}/teacherController/queryStudentsAndRecords";
 	}
  	if(document.getElementById("select").childElementCount<=1){
         window.onload = function() {
-            window.location.href="teacherController/queryStudentsAndRecords";
+            window.location.href="${pageContext.request.contextPath}/teacherController/queryStudentsAndRecords";
         }
     }	
  	function checkSelect(){

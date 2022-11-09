@@ -5,17 +5,17 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<script src="../../js/echarts.min.js"></script>
-<link href="../../bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<script src="${pageContext.request.contextPath}/js/echarts.min.js"></script>
+<link href="${pageContext.request.contextPath}/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 <script
 	src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
-<script src="../../bootstrap/js/bootstrap.min.js"></script>
-<link href="../../css/mycss.css" rel="stylesheet">
+<script src="${pageContext.request.contextPath}/bootstrap/js/bootstrap.min.js"></script>
+<link href="${pageContext.request.contextPath}/css/mycss.css" rel="stylesheet">
 <title>class-barChart</title>
 </head>
 <body>
 	<a class="btn btn-primary navbar-btn"
-				href="../teacherframe/analyze-transcript.jsp"> 返回 </a>
+				href="${pageContext.request.contextPath}/html/teacherframe/analyze-transcript.jsp"> 返回 </a>
 	<input hidden value="${sessionScope.objectName}" id="objectName">
 	<input hidden value="${sessionScope.scoresLength}" id="length">
 	<c:forEach begin="0" end="${sessionScope.scoresLength }" step="1" varStatus="sta">

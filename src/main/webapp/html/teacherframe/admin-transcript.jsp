@@ -9,14 +9,14 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- Bootstrap -->
-<link href="../../bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<link href="${pageContext.request.contextPath}/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 <script
 	src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
-<script src="../../bootstrap/js/bootstrap.min.js"></script>
-<link href="../../css/mycss.css" rel="stylesheet">
-    <script src="../../js/zh_CN.js"></script>
-	<script src="../../js/bootstrapValidator.min.js"></script>
-	<link href="../../css/bootstrapValidator.min.css" rel="stylesheet">
+<script src="${pageContext.request.contextPath}/bootstrap/js/bootstrap.min.js"></script>
+<link href="${pageContext.request.contextPath}/css/mycss.css" rel="stylesheet">
+    <script src="${pageContext.request.contextPath}/js/zh_CN.min.js"></script>
+	<script src="${pageContext.request.contextPath}/js/bootstrapValidator.min.js"></script>
+	<link href="${pageContext.request.contextPath}/css/bootstrapValidator.min.css" rel="stylesheet">
 <!--[if lt IE 9]>
     <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
@@ -33,13 +33,13 @@
 		<nav class="navbar navbar-default">
 		<div class="navbar-collapse">
 			<a class="btn btn-primary navbar-btn"
-				href="teacherController/queryTranscriptRecord"> 查询 </a>
+				href="${pageContext.request.contextPath}/teacherController/queryTranscriptRecord"> 查询 </a>				
 			<a class="btn btn-success navbar-btn " data-toggle="modal" data-target="#addTranscriptModal"
 				href=""> 添加成绩 </a>
 			<a class="btn btn-primary navbar-btn" target="_blank"
-				href="./admin-transcript.jsp"> 最大化管理 </a>
+				href="${pageContext.request.contextPath}/html/teacherframe/admin-transcript.jsp"> 最大化管理 </a>			
 			<form id="delete" class="navbar-form navbar-right"
-				action="teacherController/deleteTranscript" method="post">
+				action="${pageContext.request.contextPath}/teacherController/deleteTranscript" method="post">
 				<button type="submit" class="btn btn-warning">删除所选项</button>
 			</form>
 		</div>
@@ -75,7 +75,7 @@
 										value="<fmt:formatDate value="${transcriptRecord.uploadDate}" pattern="yyyy-MM-dd hh:mm:ss"/>"
 										name="uploadDate" readonly></td>	
 									<td><a class="btn btn-primary"
-				href="teacherController/openTranscript/${transcriptRecord.transcriptName}">打开</a></td>
+				href="${pageContext.request.contextPath}/teacherController/openTranscript/${transcriptRecord.transcriptName}">打开</a></td>
 								</tr>
 							</form>
 						</c:forEach>
@@ -89,18 +89,18 @@
 			test="${requestScope.TRLength >= 0 }">
 			<ul class="pagination">
 				<li><a
-					href="./admin-transcript.jsp?index=${TRIndex-1>0?TRIndex-1:0}&pages=${TRPages}&length=${TRLength}"
+					href="${pageContext.request.contextPath}/html/teacherframe/admin-transcript.jsp?index=${TRIndex-1>0?TRIndex-1:0}&pages=${TRPages}&length=${TRLength}"
 					aria-label="Previous"> <span aria-hidden="true">&laquo;</span>
 				</a></li>
 				<c:forEach begin="1" end="${requestScope.TRPages}" step="1"
 					varStatus="sta">
 					<li><a
-						href="./admin-transcript.jsp?index=${sta.index-1}&pages=${TRPages}&length=${TRLength}">${sta.index }
+						href="${pageContext.request.contextPath}/html/teacherframe/admin-transcript.jsp?index=${sta.index-1}&pages=${TRPages}&length=${TRLength}">${sta.index }
 					</a></li>
 				</c:forEach>
 
 				<li><a
-					href="./admin-transcript.jsp?index=${TRIndex<TRPages-1?TRIndex+1:TRPages-1}&pages=${TRPages}&length=${TRLength}"
+					href="${pageContext.request.contextPath}/html/teacherframe/admin-transcript.jsp?index=${TRIndex<TRPages-1?TRIndex+1:TRPages-1}&pages=${TRPages}&length=${TRLength}"
 					aria-label="Next"> <span aria-hidden="true">&raquo;</span>
 				</a></li>
 			</ul>
@@ -118,7 +118,7 @@
 				</h4>
 			</div>
 			<div class="modal-body">
-				<form id="transcriptUpload" class="col-xs-offset-0" action="teacherController/uploadTranscript" method="post" enctype="multipart/form-data">
+				<form id="transcriptUpload" class="col-xs-offset-0" action="${pageContext.request.contextPath}/teacherController/uploadTranscript" method="post" enctype="multipart/form-data">
                        <div class="form-group">
                             <label for="upload-parent">File input</label>
                             <input type="hidden" name="id" value="0">

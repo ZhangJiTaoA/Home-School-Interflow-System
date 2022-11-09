@@ -30,7 +30,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 
 
-@RequestMapping(value = "parentController")
+@RequestMapping(value = "/parentController")
 @SessionAttributes(types = { Transcript.class,TranscriptRecord.class, Parent.class, Student.class, ArrayList.class, String.class, Message.class,Integer.class })
 @Controller
 public class ParentController {
@@ -65,7 +65,7 @@ public class ParentController {
 	private Student student;
 	// -------------------------------实现方法-----------------------
 
-	@RequestMapping(value = "parentLogin", method = RequestMethod.POST)
+	@RequestMapping(value = "/parentLogin", method = RequestMethod.POST)
 	public String parentLogin(ModelMap modelMap, @RequestParam(value = "phone") String phoneNo,
 			@RequestParam(value = "password") String password,@RequestParam(value = "grade") int mygrade,@RequestParam(value = "myclass")int myclass ) {
 		this.mygrade = mygrade; this.myclass=myclass;

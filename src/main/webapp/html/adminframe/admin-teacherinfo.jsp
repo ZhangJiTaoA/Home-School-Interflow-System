@@ -8,11 +8,11 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- Bootstrap -->
-<link href="../../bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<link href="${pageContext.request.contextPath}/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 <script
 	src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
-<script src="../../bootstrap/js/bootstrap.min.js"></script>
-<link href="../../css/mycss.css" rel="stylesheet">
+<script src="${pageContext.request.contextPath}/bootstrap/js/bootstrap.min.js"></script>
+<link href="${pageContext.request.contextPath}/css/mycss.css" rel="stylesheet">
 <!--[if lt IE 9]>
     <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
@@ -41,13 +41,13 @@ $(function () {
 	<div class="container">
 		<nav class="navbar navbar-default">
 		<div class="navbar-collapse">
-
+			
 			<form class="navbar-form navbar-left"
-				action="adminController/queryTeacher" method="post">
+				action="${pageContext.request.contextPath}/adminController/queryTeacher" method="post">
 				<a class="btn btn-success"
 						data-toggle="popover" title="提示"
 						data-content="查询班级:  查询格式为   年级-班级, 如3年级5班则输入 3-5-----------------------------查询班主任:默认查询班主任,若输入框不为空则查询非班主任">提示</a>
-
+		
 				<div class="form-group">
 					<select name="point" class="form-control">
 						<option value="allInfo">全部信息</option>
@@ -66,9 +66,9 @@ $(function () {
 				<button type="submit" class="btn btn-default">查找</button>
 			</form>
 			<a class="btn btn-primary navbar-btn" target="_blank"
-				href="./admin-teacherinfo.jsp"> 最大化管理 </a>
+				href="${pageContext.request.contextPath}/html/adminframe/admin-teacherinfo.jsp"> 最大化管理 </a>
 			<form id="delete" class="navbar-form navbar-right"
-				action="adminController/deleteTeachers" method="post">
+				action="${pageContext.request.contextPath}/adminController/deleteTeachers" method="post">
 				<button type="submit" class="btn btn-warning">删除所选项</button>
 			</form>
 		</div>
@@ -104,7 +104,7 @@ $(function () {
 							end="${requestScope.length>requestScope.index*10+9?requestScope.index*10+9:requestScope.length}"
 							varStatus="sta">
 							<p hidden>${tea=sessionScope.teachers[sta.index]}</p>
-							<form action="adminController/updateTeacher"
+							<form action="${pageContext.request.contextPath}/adminController/updateTeacher"
 								method="post">
 								<tr>
 									<td><input name="deleteNo" form="delete" type="checkbox"
@@ -192,18 +192,18 @@ $(function () {
 			test="${!empty requestScope.index }">
 			<ul class="pagination">
 				<li><a
-					href="./admin-teacherinfo.jsp?index=${index-1>0?index-1:0}&pages=${pages}&length=${length}"
+					href="${pageContext.request.contextPath}/html/adminframe/admin-teacherinfo.jsp?index=${index-1>0?index-1:0}&pages=${pages}&length=${length}"
 					aria-label="Previous"> <span aria-hidden="true">&laquo;</span>
 				</a></li>
 				<c:forEach begin="1" end="${requestScope.pages}" step="1"
 					varStatus="sta">
 					<li><a
-						href="./admin-teacherinfo.jsp?index=${sta.index-1}&pages=${pages}&length=${length}">${sta.index }
+						href="${pageContext.request.contextPath}/html/adminframe/admin-teacherinfo.jsp?index=${sta.index-1}&pages=${pages}&length=${length}">${sta.index }
 					</a></li>
 				</c:forEach>
 
 				<li><a
-					href="./admin-teacherinfo.jsp?index=${index<pages-1?index+1:pages-1}&pages=${pages}&length=${length}"
+					href="${pageContext.request.contextPath}/html/adminframe/admin-teacherinfo.jsp?index=${index<pages-1?index+1:pages-1}&pages=${pages}&length=${length}"
 					aria-label="Next"> <span aria-hidden="true">&raquo;</span>
 				</a></li>
 			</ul>

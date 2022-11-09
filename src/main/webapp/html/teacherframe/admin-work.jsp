@@ -9,11 +9,11 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- Bootstrap -->
-<link href="../../bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<link href="${pageContext.request.contextPath}/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 <script
 	src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
-<script src="../../bootstrap/js/bootstrap.min.js"></script>
-<link href="../../css/mycss.css" rel="stylesheet">
+<script src="${pageContext.request.contextPath}/bootstrap/js/bootstrap.min.js"></script>
+<link href="${pageContext.request.contextPath}/css/mycss.css" rel="stylesheet">
 <!--[if lt IE 9]>
     <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
@@ -25,11 +25,11 @@
 		<nav class="navbar navbar-default">
 		<div class="navbar-collapse">
 			<a class="btn btn-primary navbar-btn" target="_blank"
-				href="./admin-work.jsp"> 最大化管理 </a>
+				href="${pageContext.request.contextPath}/html/teacherframe/admin-work.jsp"> 最大化管理 </a>
 			<a class="btn btn-primary navbar-btn" 
-				href="teacherController/refreshMessage" > 刷新 </a>
+				href="${pageContext.request.contextPath}/teacherController/refreshMessage" > 刷新 </a>
 			<form id="delete" class="navbar-form navbar-right"
-				action="teacherController/deleteMessage" method="post">
+				action="${pageContext.request.contextPath}/teacherController/deleteMessage" method="post">
 				<button type="submit" class="btn btn-warning">删除所选项</button>
 			</form>
 		</div>
@@ -78,17 +78,17 @@
 			test="${sessionScope.messageLength >= 0 }">
 			<ul class="pagination">
 				<li><a
-					href="./admin-work.jsp?index=${messageIndex-1>0?messageIndex-1:0}&pages=${messagePages}&length=${messageLength}"
+					href="${pageContext.request.contextPath}/html/teacherframe/admin-work.jsp?index=${messageIndex-1>0?messageIndex-1:0}&pages=${messagePages}&length=${messageLength}"
 					aria-label="Previous"> <span aria-hidden="true">&laquo;</span>
 				</a></li>
 				<c:forEach begin="1" end="${sessionScope.messagePages}" step="1"
 					varStatus="sta">
 					<li><a
-						href="./admin-work.jsp?index=${sta.index-1}&pages=${messagePages}&length=${messageLength}">${sta.index }
+						href="${pageContext.request.contextPath}/html/teacherframe/admin-work.jsp?index=${sta.index-1}&pages=${messagePages}&length=${messageLength}">${sta.index }
 					</a></li>
 				</c:forEach>
 				<li><a
-					href="./admin-work.jsp?index=${messageIndex<messagePages-1?messageIndex+1:messagePages-1}&pages=${messagePages}&length=${messageLength}"
+					href="${pageContext.request.contextPath}/html/teacherframe/admin-work.jsp?index=${messageIndex<messagePages-1?messageIndex+1:messagePages-1}&pages=${messagePages}&length=${messageLength}"
 					aria-label="Next"> <span aria-hidden="true">&raquo;</span>
 				</a></li>
 			</ul>

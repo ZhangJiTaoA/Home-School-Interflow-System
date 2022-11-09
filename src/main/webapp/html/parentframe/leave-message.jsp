@@ -8,13 +8,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Bootstrap -->
-    <link href="../../bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
-    <script src="../../bootstrap/js/bootstrap.min.js"></script>
-    <link href="../../css/mycss.css" rel="stylesheet">
-    <script src="../../js/zh_CN.min.js"></script>
-    <script src="../../js/bootstrapValidator.min.js"></script>
-    <link href="../../css/bootstrapValidator.min.css" rel="stylesheet">
+    <script src="${pageContext.request.contextPath}/bootstrap/js/bootstrap.min.js"></script>
+    <link href="${pageContext.request.contextPath}/css/mycss.css" rel="stylesheet">
+    <script src="${pageContext.request.contextPath}/js/zh_CN.min.js"></script>
+    <script src="${pageContext.request.contextPath}/js/bootstrapValidator.min.js"></script>
+    <link href="${pageContext.request.contextPath}/css/bootstrapValidator.min.css" rel="stylesheet">
     <!--[if lt IE 9]>
     <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
@@ -25,7 +25,7 @@
 <div class="container">
     <br/>
     <div class="col-lg-4 col-lg-offset-4 col-md-6 col-md-offset-3 col-sm-7 col-sm-offset-3 col-xs-10 col-xs-offset-2">
-        <form action="parentController/leaveMessage" method="post">
+        <form action="${pageContext.request.contextPath}/parentController/leaveMessage" method="post">
             <div class="form-group">
                 <label for="recipient-name" class="control-label">标题:</label>
                 <input type="text" class="form-control" id="recipient-name" name="title">

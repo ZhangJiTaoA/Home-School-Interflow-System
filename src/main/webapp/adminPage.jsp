@@ -7,11 +7,11 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- Bootstrap -->
-<link href="./bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<link href="${pageContext.request.contextPath}/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 <script
 	src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
-<script src="./bootstrap/js/bootstrap.min.js"></script>
-<link href="./css/mycss.css" rel="stylesheet">
+<script src="${pageContext.request.contextPath}/bootstrap/js/bootstrap.min.js"></script>
+<link href="${pageContext.request.contextPath}/css/mycss.css" rel="stylesheet">
 <!--[if lt IE 9]>
     <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
@@ -34,13 +34,13 @@
 		</div>
 		<div class="navbar-collapse collapse" role="navigation">
 			<ul class="nav navbar-nav">
-				<li><a href="./login.jsp">登录</a></li>
-				<li><a target="_blank" href="./changePassword.jsp?type=admin">修改密码</a></li>
+				<li><a href="${pageContext.request.contextPath}/login.jsp">登录</a></li>
+				<li><a target="_blank" href="${pageContext.request.contextPath}/changePassword.jsp?type=admin">修改密码</a></li>
 			</ul>
 
 			<ul class="nav navbar-nav navbar-right">
 				<li><a href="#">关于</a></li>
-				<li><a href="./index.jsp">退出</a></li>
+				<li><a href="${pageContext.request.contextPath}/index.jsp">退出</a></li>
 			</ul>
 		</div>
 	</div>
@@ -62,7 +62,7 @@
 		<div class="row">
 			<header class="col-md-3">
 			<div class="logo hidden-sm hidden-xs">
-				<a href="#"><img id="logo" src="./images/logo.png" alt=""></a>
+				<a href="#"><img id="logo" src="${pageContext.request.contextPath}/images/logo.png" alt=""></a>
 			</div>
 			<div id="my-nav">
 				<ul id="function-Tab" class="nav nav-tabs nav-stacked">
@@ -80,19 +80,19 @@
 				<div class="tab-pane" id="upload-teacherinfo">
 					<div class="embed-responsive embed-responsive-16by9">
 						<iframe class="embed-responsive-item"
-							src="./html/adminframe/upload-teacherinfo.jsp"></iframe>
+							src="${pageContext.request.contextPath}/html/adminframe/upload-teacherinfo.jsp"></iframe>
 					</div>
 				</div>
 				<div class="tab-pane" id="input-teacherinfo">
 					<div class="embed-responsive embed-responsive-4by3">
 						<iframe class="embed-responsive-item"
-							src="./html/adminframe/input-teacherinfo.jsp"></iframe>
+							src="${pageContext.request.contextPath}/html/adminframe/input-teacherinfo.jsp"></iframe>
 					</div>
 				</div>
 				<div class="tab-pane" id="admin-teacherinfo">
 					<div class="embed-responsive embed-responsive-16by9">
 						<iframe class="embed-responsive-item"
-							src="./html/adminframe/admin-teacherinfo.jsp"></iframe>
+							src="${pageContext.request.contextPath}/html/adminframe/admin-teacherinfo.jsp"></iframe>
 					</div>
 				</div>
 			</div>

@@ -9,10 +9,10 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Bootstrap -->
-    <link href="../../bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
-    <script src="../../bootstrap/js/bootstrap.min.js"></script>
-    <link href="../../css/mycss.css" rel="stylesheet">
+    <script src="${pageContext.request.contextPath}/bootstrap/js/bootstrap.min.js"></script>
+    <link href="${pageContext.request.contextPath}/css/mycss.css" rel="stylesheet">
     <!--[if lt IE 9]>
     <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
@@ -42,15 +42,15 @@
             <nav class="col-sm-offset-2 col-xs-offset-3" aria-label="Page navigation">
                 <ul class="pagination">
                     <li>
-                        <a href="./query-taskinfo.jsp?index=${messageIndex-1>0?messageIndex-1:0}" aria-label="Previous">
+                        <a href="${pageContext.request.contextPath}/html/parentframe/query-taskinfo.jsp?index=${messageIndex-1>0?messageIndex-1:0}" aria-label="Previous">
                             <span aria-hidden="true">&laquo;</span>
                         </a>
                     </li>
                     <c:forEach begin="1" end="${sessionScope.messageLength}" step="1" varStatus="sta">
-						<li><a href="./query-taskinfo.jsp?index=${sta.index-1}">${sta.index } </a></li>
+						<li><a href="${pageContext.request.contextPath}/html/parentframe/query-taskinfo.jsp?index=${sta.index-1}">${sta.index } </a></li>
 					</c:forEach>
                     <li>
-                        <a href="./query-taskinfo.jsp?index=${messageIndex<messageLength-1?messageIndex+1:messageLength-1}" aria-label="Next">
+                        <a href="${pageContext.request.contextPath}/html/parentframe/query-taskinfo.jsp?index=${messageIndex<messageLength-1?messageIndex+1:messageLength-1}" aria-label="Next">
                             <span aria-hidden="true">&raquo;</span>
                         </a>
                     </li>

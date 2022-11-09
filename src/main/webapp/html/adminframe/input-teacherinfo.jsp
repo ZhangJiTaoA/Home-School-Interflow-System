@@ -8,14 +8,14 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- Bootstrap -->
-<link href="../../bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<link href="${pageContext.request.contextPath}/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 <script
 	src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
-<script src="../../bootstrap/js/bootstrap.min.js"></script>
-<link href="../../css/mycss.css" rel="stylesheet">
-<script src="../../js/zh_CN.js"></script>
-<script src="../../js/bootstrapValidator.min.js"></script>
-<link href="../../css/bootstrapValidator.min.css" rel="stylesheet">
+<script src="${pageContext.request.contextPath}/bootstrap/js/bootstrap.min.js"></script>
+<link href="${pageContext.request.contextPath}/css/mycss.css" rel="stylesheet">
+<script src="${pageContext.request.contextPath}/js/zh_CN.min.js"></script>
+<script src="${pageContext.request.contextPath}/js/bootstrapValidator.min.js"></script>
+<link href="${pageContext.request.contextPath}/css/bootstrapValidator.min.css" rel="stylesheet">
 <!--[if lt IE 9]>
     <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
@@ -25,7 +25,7 @@
 <body>
 	<div class="container">
 		<row class="row">
-		<form class="form-horizontal" action="adminController/addTeacher" method="post">
+		<form class="form-horizontal" action="${pageContext.request.contextPath}/adminController/addTeacher" method="post">
 			<span class="label label-warning col-sm-offset-10 col-xs-offset-9">标有<span
 				class="glyphicon glyphicon-heart-empty"></span>的为必填项
 			</span>
@@ -76,8 +76,7 @@
 				</div>
 			</div>
 			<div class="form-group">
-
-					<label for="course" class="col-sm-2 control-label"><span
+				<label for="course" class="col-sm-2 control-label"><span
 					class="glyphicon glyphicon-heart-empty"></span>教授科目</label>
 				<div class="col-sm-9">
 					<select name="course" class="form-control">

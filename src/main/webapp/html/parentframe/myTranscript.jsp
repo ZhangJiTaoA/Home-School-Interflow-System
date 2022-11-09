@@ -8,11 +8,11 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Bootstrap -->
-    <link href="../../bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
-    <script src="../../bootstrap/js/bootstrap.min.js"></script>
-    <script src="../../js/echarts.min.js"></script>
-    <link href="../../css/mycss.css" rel="stylesheet">
+    <script src="${pageContext.request.contextPath}/bootstrap/js/bootstrap.min.js"></script>
+    <script src="${pageContext.request.contextPath}/js/echarts.min.js"></script>
+    <link href="${pageContext.request.contextPath}/css/mycss.css" rel="stylesheet">
     <!--[if lt IE 9]>
     <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
@@ -28,7 +28,7 @@
 				<div class="form-group">
 					<label><span class="glyphicon glyphicon-user"
 						aria-hidden="true"></span></label> <label>${student.name }</label>
-					<a class="btn btn-info btn-xs" target="_blank" href="./myTranscript.jsp">最大化显示</a>
+					<a class="btn btn-info btn-xs" target="_blank" href="${pageContext.request.contextPath}/html/parentframe/myTranscript.jsp">最大化显示</a>
 				</div>
 				<table class="table table-hover ">
 					<!--                <caption>成绩信息表</caption>-->

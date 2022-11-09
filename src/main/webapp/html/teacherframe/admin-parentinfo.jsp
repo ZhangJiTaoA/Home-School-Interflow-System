@@ -8,11 +8,11 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- Bootstrap -->
-<link href="../../bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<link href="${pageContext.request.contextPath}/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 <script
 	src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
-<script src="../../bootstrap/js/bootstrap.min.js"></script>
-<link href="../../css/mycss.css" rel="stylesheet">
+<script src="${pageContext.request.contextPath}/bootstrap/js/bootstrap.min.js"></script>
+<link href="${pageContext.request.contextPath}/css/mycss.css" rel="stylesheet">
 <!--[if lt IE 9]>
     <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
@@ -37,7 +37,7 @@
 		<nav class="navbar navbar-default">
 		<div class="navbar-collapse">
 			<form class="navbar-form navbar-left"
-				action="teacherController/queryParentInfo" method="post">
+				action="${pageContext.request.contextPath}/teacherController/queryParentInfo" method="post">
 				<div class="form-group">
 					<select name="point" class="form-control">
 						<option value="allInfo">全部信息</option>
@@ -53,8 +53,8 @@
 				<button type="submit" class="btn btn-default">查找</button>
 			</form>
 			<a class="btn btn-primary navbar-btn" target="_blank"
-				href="./admin-parentinfo.jsp"> 最大化管理 </a>
-			<form id="delete" class="navbar-form navbar-right" action="teacherController/deleteParent" method="post">
+				href="${pageContext.request.contextPath}/html/teacherframe/admin-parentinfo.jsp"> 最大化管理 </a>
+			<form id="delete" class="navbar-form navbar-right" action="${pageContext.request.contextPath}/teacherController/deleteParent" method="post">
 				<button type="submit" class="btn btn-warning">删除所选项</button>
 			</form>
 		</div>
@@ -84,7 +84,7 @@
 							end="${requestScope.length>requestScope.index*10+9?requestScope.index*10+9:requestScope.length}"
 							varStatus="sta">
 							<p hidden>${par=sessionScope.parents[sta.index]}</p>
-							<form action="teacherController/updateParent" method="post">
+							<form action="${pageContext.request.contextPath}/teacherController/updateParent" method="post">
 								<tr>
 									<td><input form="delete" type="checkbox" class="" value="${par.stuNo}" name="deletestuNo"></td>
 									<!-- 学号 -->
@@ -130,14 +130,14 @@
 			aria-label="Page navigation">
 		<c:if test="${!empty requestScope.index }">
 			<ul class="pagination">
-				<li><a href="./admin-parentinfo.jsp?index=${index-1>0?index-1:0}&pages=${pages}&length=${length}" aria-label="Previous"> <span
+				<li><a href="${pageContext.request.contextPath}/html/teacherframe/admin-parentinfo.jsp?index=${index-1>0?index-1:0}&pages=${pages}&length=${length}" aria-label="Previous"> <span
 						aria-hidden="true">&laquo;</span>
 				</a></li>
 				<c:forEach begin="1" end="${requestScope.pages}" step="1" varStatus="sta">
-					<li><a href="./admin-parentinfo.jsp?index=${sta.index-1}&pages=${pages}&length=${length}">${sta.index } </a></li>
+					<li><a href="${pageContext.request.contextPath}/html/teacherframe/admin-parentinfo.jsp?index=${sta.index-1}&pages=${pages}&length=${length}">${sta.index } </a></li>
 				</c:forEach>
 				
-				<li><a href="./admin-parentinfo.jsp?index=${index<pages-1?index+1:pages-1}&pages=${pages}&length=${length}" aria-label="Next"> <span aria-hidden="true">&raquo;</span>
+				<li><a href="${pageContext.request.contextPath}/html/teacherframe/admin-parentinfo.jsp?index=${index<pages-1?index+1:pages-1}&pages=${pages}&length=${length}" aria-label="Next"> <span aria-hidden="true">&raquo;</span>
 				</a></li>
 			</ul>
 		</c:if>
