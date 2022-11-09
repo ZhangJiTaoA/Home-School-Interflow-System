@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper  
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.haitao.mapper.MessageMapper">
+
+	<select id="queryMessageByTeaNo" parameterType="String" resultType="Message">
+		select * from message where teano = #{teaNo} order by messagedate desc
+	</select>
+
+	<insert id="addMessage" parameterType="Message">
+		insert into message(messagedate,teano,stuno,title,content) values(#{messageDate},#{teaNo},#{stuNo},#{title},#{content})
+	</insert>
+	
+	<delete id="deleteMessageByDate" parameterType="java.util.Date">
+		delete from message where messagedate = #{messagedate}
+	</delete>
+</mapper>

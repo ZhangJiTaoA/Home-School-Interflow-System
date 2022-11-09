@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper  
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.haitao.mapper.ParentMapper">
+
+	<select id="queryAllInfo" parameterType="String"
+		resultType="Parent">
+		select * from ${value}
+	</select>
+	<select id="queryParentBystuNo" parameterType="HashMap"
+		resultType="Parent">
+		select * from ${tableName} where stuno = #{stuNo}
+	</select>
+	<select id="queryParentByName" parameterType="HashMap"
+		resultType="Parent">
+		select * from ${tableName} where name=#{name}
+	</select>
+	<select id="queryParentByPhoneno" parameterType="HashMap"
+		resultType="Parent">
+		select * from ${tableName} where phoneno=#{phoneno}
+	</select>
+
+	<update id="creatTable" parameterType="String">
+		create table ${value}parent(
+		name varchar(255) not null,
+		phoneno varchar(255) not null,
+		stuno
+		varchar(255) not null,
+		password varchar(255) not null,
+		relation
+		varchar(255),
+		address varchar(255),
+		workunit varchar(255) ,
+		primary key(phoneno),
+		foreign key(stuno) references ${value}student(stuno)
+		on update cascade  
+		on delete cascade );
+	</update>
+
+	<insert id="addParent" parameterType="HashMap">
+		insert into
+		${tableName}(name,phoneno,stuno,password,relation,address,workunit)
+		values(#{parent.name},#{parent.phoneNo},#{parent.stuNo},#{parent.password},#{parent.relation},#{parent.address},#{parent.workunit})
+	</insert>
+
+	<update id="updateParent" parameterType="HashMap">
+		update ${tableName} set
+		name=#{parent.name},phoneno=#{parent.phoneNo},password=#{parent.password},relation=#{parent.relation},address=#{parent.address},workunit=#{parent.workunit}
+		where stuno = #{parent.stuNo}
+	</update>
+
+	<delete id="deleteParent" parameterType="HashMap">
+		delete from ${tableName} where stuno=#{stuNo}
+	</delete>
+
+
+</mapper>

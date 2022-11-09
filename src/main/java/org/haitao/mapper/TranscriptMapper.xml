@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper  
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.haitao.mapper.TranscriptMapper">
+	<!-- 创建一个新表 -->
+	<update id="creatTranscritpTable" parameterType="HashMap">
+		create table
+		${tableName}(
+		stuno varchar(255) not null,
+		name varchar(255) not null,
+		chinese double,
+		math double,
+		english double,
+		physical double,
+		chemical
+		double,
+		biological double,
+		history double,
+		geographic double,
+		political
+		double,
+		sport double,
+		average double,
+		primary key(stuno),
+		foreign key(stuno) references ${refTableName}(stuno)
+		on update cascade
+		on delete cascade)
+	</update>
+	<!-- //查询数据 -->
+	<select id="queryAllTranscript" parameterType="String"
+		resultType="Transcript">
+		select * from ${value} order by average desc
+	</select>
+
+	<select id="queryTranscriptByStuNo" parameterType="HashMap"
+		resultType="Transcript">
+		select * from ${tableName} where stuno=#{stuNo}
+	</select>
+	<select id="getRankByStuNo" parameterType="HashMap" resultType="Integer">
+		select count(*)+1 from ${tableName} where average>all(select average from ${tableName} where stuno=#{stuNo})
+	</select>
+	<!-- 求一个班的一次成绩单的平均成绩 -->
+	<select id="queryAverage" parameterType="String" resultType="Double">
+		select avg(average)*10 from ${value}
+	</select>
+	
+	<!-- 求一个班的一次成绩单的单科平均成绩 -->
+	<select id="queryAverageSingleObject" parameterType="HashMap" resultType="Double">
+		select avg(${objectName}) from ${tableName}
+	</select>
+
+	<!-- 增加数据 -->
+	<insert id="addTranscript" parameterType="HashMap">
+		insert into
+		${tableName}(stuNo,name ,chinese ,math
+		,english ,physical ,chemical
+		,biological ,history ,geographic
+		,political ,sport ,average )
+		values(#{transcript.stuNo},#{transcript.name} ,#{transcript.chinese}
+		,#{transcript.math}
+		,#{transcript.english} ,#{transcript.physical}
+		,#{transcript.chemical} ,#{transcript.biological}
+		,#{transcript.history} ,#{transcript.geographic}
+		,#{transcript.political} ,#{transcript.sport} ,#{transcript.average} )
+	</insert>
+	<!-- 删除表 -->
+	<delete id="deleteTranscriptTable" parameterType="String">
+		drop table ${tableName}
+	</delete>
+	<!-- 修改数据 -->
+	<update id="updateTranscript" parameterType="HashMap">
+		update ${tableName} set chinese=#{transcript.chinese}
+		,math=#{transcript.math}
+		,english=#{transcript.english}
+		,physical=#{transcript.physical} ,chemical=#{transcript.chemical}
+		,biological=#{transcript.biological} ,history=#{transcript.history}
+		,geographic=#{transcript.geographic}
+		,political=#{transcript.political} ,sport=#{transcript.sport}
+		,average=#{transcript.average} where stuno=#{transcript.stuNo}
+	</update>
+</mapper>

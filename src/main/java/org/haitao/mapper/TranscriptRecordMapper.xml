@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper  
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.haitao.mapper.TranscriptRecordMapper">
+
+
+	<!-- 查询所有记录 -->
+	<select id="queryAllTranscriptRecord"
+		resultType="TranscriptRecord">
+		select * from transcriptrecord order by uploaddate desc
+	</select>
+
+	<select id="queryTranscriptRecordByteaNo" parameterType="String"
+		resultType="TranscriptRecord">
+		select * from transcriptrecord where teano=#{teano} order by uploaddate desc
+	</select>
+	
+	<select id="queryTranscriptName" parameterType="java.util.Date"
+		resultType="String">
+		select transcriptname from transcriptrecord where uploaddate=#{date}
+	</select>
+	
+	<!-- 按照班级年级和成绩单类型前缀  查询成绩单记录 并且按照时间降序排序-->
+	<select id="queryTRByPrefix" parameterType="String" resultType="TranscriptRecord">
+		select * from transcriptrecord where transcriptname like '${value}%' order by uploaddate desc
+	</select>
+	<!-- 传入几年级几班 -->
+	<select id="queryTRMME" parameterType="String" resultType="TranscriptRecord">
+		select * from transcriptrecord where transcriptname like '${value}month%' or transcriptname like '${value}endterm%' or transcriptname like '${value}midterm%' order by uploaddate desc
+	</select>
+
+	<!-- 新增一条记录 -->
+	<insert id="addTranscriptRecord"
+		parameterType="TranscriptRecord">
+		insert into
+		transcriptrecord(teano,transcriptname,uploaddate)
+		values(#{teaNo},#{transcriptName},#{uploadDate})
+	</insert>
+	<!-- 删除一条记录 -->
+	<delete id="deleteTranscriptRecord"
+		parameterType="java.util.Date">
+		delete from transcriptrecord where
+		uploaddate=#{uploadDate}
+	</delete>
+
+</mapper>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper  
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.haitao.mapper.Message2Mapper">
+
+	<select id="queryMessage2ByTeaNo" parameterType="String" resultType="Message2">
+		select * from message2 where teano = #{teaNo} order by messagedate desc
+	</select>
+	
+	<select id="queryMessage2ByParentPhone" parameterType="String" resultType="Message2">
+		select * from message2 where personinfo = #{personInfo} order by messagedate desc
+	</select>
+
+	<insert id="addMessage2" parameterType="Message2">
+		insert into message2(messagedate,personinfo,teano,title,content,isopen) values(#{messageDate},#{personInfo},#{teaNo},#{title},#{content},#{isOpen})
+	</insert>
+	
+	<delete id="deleteMessage2ByDate" parameterType="java.util.Date">
+		delete from message2 where messagedate = #{messagedate}
+	</delete>
+</mapper>

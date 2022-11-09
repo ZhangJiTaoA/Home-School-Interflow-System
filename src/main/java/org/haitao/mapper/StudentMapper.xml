@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper  
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.haitao.mapper.StudentMapper">
+
+	<select id="queryAllInfo" parameterType="String" resultType="Student">
+		select * from ${value}
+	</select>
+	<select id="queryStudentName" parameterType="String" resultType="String" >
+		select name from ${value} 
+	</select>
+	<select id="queryStudentByName" parameterType="HashMap" resultType="Student">
+		select * from ${tableName} where name=#{name}
+	</select>
+	<select id="queryStudentByStuNo" parameterType="HashMap" resultType="Student">
+		select * from ${tableName} where stuno=#{stuNo}
+	</select>
+	<select id="queryStudentBySex" parameterType="HashMap" resultType="Student">
+		select * from ${tableName} where sex=#{sex}
+	</select>
+	<select id="queryStudentByBornYear" parameterType="HashMap" resultType="Student">
+		select * from ${tableName} where YEAR(borndate)=${year}
+	</select>
+
+
+	<update id="creatTable" parameterType="String">
+		create table ${value}(
+		stuno varchar(255),
+		name varchar(255) not null,
+		sex int not null,
+		borndate date not null,
+		primary key(stuno))	
+	</update>
+
+	<insert id="addStudent" parameterType="HashMap">
+		insert into ${tableName}(stuno,name,sex,borndate) values(#{student.stuNo},#{student.name},#{student.sex},#{student.bornDate})
+	</insert>
+
+	<update id="updateStudent" parameterType="HashMap">
+		update ${tableName} set
+		name = #{student.name},sex = #{student.sex},borndate = #{student.bornDate}
+		where stuno = #{student.stuNo}
+	</update>
+
+	<delete id="deleteStudent" parameterType="HashMap">
+		delete from ${tableName} where stuno=#{stuNo} 
+	</delete>
+
+
+</mapper>
+
+
+

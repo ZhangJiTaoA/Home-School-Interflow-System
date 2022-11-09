@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+
+	<!-- 加载properites文件 -->
+	<bean id="config"
+		class="org.springframework.beans.factory.config.PreferencesPlaceholderConfigurer">
+		<property name="locations">
+			<array>
+				<value>classpath:db.properties</value>
+			</array>
+		</property>
+	</bean>
+
+	<!-- 配置数据库 -->
+	<bean id="dataSource"
+		class="org.apache.commons.dbcp2.BasicDataSource">
+		<property name="driverClassName" value="${driver}"></property>
+		<property name="url" value="${url}"></property>
+		<property name="username" value="${username}"></property>
+		<property name="password" value="${password}"></property>
+		<property name="maxIdle" value="${maxIdle}"></property>
+		<property name="maxTotal" value="${maxTotal}"></property>
+	</bean>
+
+	<!-- 配置myBatis的核心类：sessionFactory -->
+	<bean id="sqlSessionFactory"
+		class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSource"></property>
+		<property name="typeAliasesPackage"
+			value="org.haitao.entity"></property>
+		<property name="mapperLocations"
+			value="classpath:org/haitao/mapper/*.xml"></property>
+	</bean>
+
+	<!-- 将MyBatis的sqlSessionFactory交给spring -->
+	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+		<property name="sqlSessionFactoryBeanName"
+			value="sqlSessionFactory"></property>
+		<property name="basePackage" value="org.haitao.mapper"></property>
+		<!-- 上面的basePackage所在的property的作用 将org.haitao.mapper包中，所有的接口 产生与之对应的 动态代理对象
+			（对象名 就是首字母小写接口名）：studentMapper.增删改查 -->
+	</bean>
+
+
+	<context:component-scan base-package="org.haitao.service.impl"></context:component-scan>
+	
+	<!-- 依赖注入：给service注入dao -->
+	<!-- <bean id="adminService"
+		class="org.haitao.service.impl.AdminService">
+		<property name="adminMapper" ref="adminMapper"></property>
+	</bean> -->
+
+	<!-- 文件上传 -->
+	<!-- CommonsMultipartResolver,用于实现文件上传 id值固定 -->
+<!--	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">-->
+<!--		<property name="defaultEncoding" value="UTF-8"></property>-->
+<!--		&lt;!&ndash; 上传单个文件的最大值，单位是b &ndash;&gt;-->
+<!--		<property name="maxUploadSize" value="102400"></property>-->
+<!--	</bean>-->
+
+
+</beans>
+
+
+
+
+

@@ -1,0 +1,64 @@
+/*瀵艰埅鏍�*/
+#navbar-img{
+    height: 30px;
+}
+#drop-down-list{
+    background: black;
+}
+#drop-down-list li a{
+    color: white;
+}
+#drop-down-list li a:hover{
+    color: black;
+}
+@media screen and (max-width:768px) {
+    #drop-down-list li a:hover{
+        color: green;
+    }
+}
+/*宸ㄥ箷*/
+.jumbotron{
+    background: dodgerblue;
+}
+
+
+/*淇敼container鐨勬渶澶у搴︿负1280px*/
+/*@media screen and (min-width: 1280px) {*/
+/*    .container{*/
+/*        width:1280px;*/
+/*    }*/
+/*}*/
+/*adminPage logo*/
+.logo #logo{
+    width: 190px;
+    height: 120px;
+}
+/*璁剧疆灏忓睆骞曪紝瓒呭皬灞忓箷瀵艰埅妯潃*/
+@media screen and (max-width: 991px){
+    #function-Tab li{
+        float: left;
+        width: 20%;
+    }
+}
+/*璁剧疆瓒呭皬灞忓箷瀵艰埅鏀瑰瓧浣撳ぇ灏�*/
+@media screen and (max-width:767px ){
+    #function-Tab li a{
+        font-size: 13px;
+    }
+}
+
+/* @media screen and (max-width: 2000px){
+    .grade-class-label{
+        float: left;
+        width: 10%;
+    }
+    .grade-class {
+        float: left;
+        width: 30%;
+    }
+} */
+
+
+
+
+

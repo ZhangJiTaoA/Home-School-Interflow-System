@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper  
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.haitao.mapper.TeacherMapper">
+
+	<insert id="addTeacherInfo" parameterType="Teacher">
+		insert into
+		teacher(teano,name,sex,phoneno,password,course,grade1,class1,grade2,class2,ischarge)
+		values(#{teaNo},#{name},#{sex},#{phoneNo},#{password},#{course},#{grade1},#{class1},#{grade2},#{class2},#{isCharge})
+	</insert>
+
+	<select id="queryTeachers" resultType="Teacher">
+		select * from teacher;
+	</select>
+
+	<select id="queryTeachersByteaNo" resultType="Teacher"
+		parameterType="String">
+		select * from teacher where teano=#{teano}
+	</select>
+	<select id="queryTeachersByteaName" resultType="Teacher"
+		parameterType="String">
+		select * from teacher where name=#{name}
+	</select>
+	<select id="queryTeachersByteaPhone" resultType="Teacher"
+		parameterType="String">
+		select * from teacher where phoneno=#{phoneno}
+	</select>
+	<select id="queryTeachersByCourse" resultType="Teacher"
+		parameterType="String">
+		select * from teacher where course=#{course}
+	</select>
+	<select id="queryTeachersByGradeAndClass1" resultType="Teacher"
+		parameterType="HashMap">
+		select * from teacher
+		<where>
+			<if test="grade !=null and grade!='' ">
+				and grade1 = #{grade}
+			</if>
+			<if test="class !=null and class!=0 ">
+				and class1 = #{class}
+			</if>
+		</where>
+	</select>
+	<select id="queryTeachersByGradeAndClass2" resultType="Teacher"
+		parameterType="HashMap">
+		select * from teacher
+		<where>
+			<if test="grade !=null and grade!='' ">
+				and grade2 = #{grade}
+			</if>
+			<if test="class !=null and class!='' ">
+				and class2 = #{class}
+			</if>
+		</where>
+	</select>
+	<select id="queryTeachersByCharge" resultType="Teacher"
+		parameterType="int">
+		select * from teacher where ischarge=#{ischarge}
+	</select>
+	
+	
+	<!-- 查找指定班级的班主任 -->
+	<select id="queryChargeTeacher" resultType="Teacher" parameterType="HashMap">
+		select * from teacher where grade1=#{grade} and class1 = #{class} and ischarge = 1;
+	</select>
+	
+	<!-- 查表名 -->
+	<select id="queryTableName" resultType="String" parameterType="String">
+		select table_name from information_schema.tables where table_schema = "hsproject" and table_name like "%${value}"
+	</select>
+	
+
+
+
+	<update id="updateTeacher" parameterType="Teacher">
+		update teacher set
+		sex=#{sex},phoneno=#{phoneNo},password=#{password},course=#{course},grade1=#{grade1},class1=#{class1},grade2=#{grade2},class2=#{class2},ischarge=#{isCharge}
+		where teano=#{teaNo}
+	</update>
+
+	<delete id="deleteTeacher" parameterType="String">
+		delete from teacher
+		where teano=#{teaNo}
+	</delete>
+</mapper>
+
+
+
+
+
+
+
